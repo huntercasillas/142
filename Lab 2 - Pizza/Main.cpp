@@ -4,8 +4,8 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
+    
 	cout << "How many guests are attending the event? ";
 	int guests;
 	cin >> guests;
