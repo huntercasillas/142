@@ -3,8 +3,8 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
+    
 	cout << "\t\t\t\tBasic BYU Trivia\n\n";
 	cout << "\t\tQuestions\t\t\t\tAnswers\n\n";
 	cout << "What was the original name of BYU? \t \tBrigham Young Academy\n";
