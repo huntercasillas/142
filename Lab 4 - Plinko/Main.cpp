@@ -22,11 +22,10 @@ Output: Ave-$1084, Total-$108400
 
 using namespace std;
 
-int main()
-{
+int main() {
+    
 	int menu = 1;
-	while (menu == 1)
-	{
+    while (menu == 1) {
 		cout << "MENU: Please select one of the following options: \n1 - Drop a single chip into one slot\n2 - Drop multiple chips into one slot\n3 - Quit the program\nEnter your selection here:";
 		string menuoption = "";
 		cin >> menuoption;
@@ -46,39 +45,36 @@ int main()
 		const double PRZ8 = 100;
 
 
-		if (menuoption == "1")// single chip
-		{
+        if (menuoption == "1") { // single chip
+            
 			cout << "Select a slot (0-8): ";
 			cin >> slotnumber;
 
-			if (slotnumber >= 0 && slotnumber <= 8) //for loop to simulate random falling of chip
-			{
+            if (slotnumber >= 0 && slotnumber <= 8) { //for loop to simulate random falling of chip
 				double location = slotnumber;
 				cout << location << endl;
-				for (int i = 0; i < 12; i++) // simulate chip drop
-				{
+                
+                for (int i = 0; i < 12; i++) { // simulate chip drop
 
 					double random = rand() % 2;
-					if (random < 1)
-					{
+                    if (random < 1) {
 						location = location + 0.5;
-					}
-					else
-					{
+                    } else {
 						location = location - 0.5;
 					}
-					if (location < 0)
-					{
+                    
+                    if (location < 0) {
 						location = 0.5;
-					}
-					else if (location > 8)
-					{
+                    } else if (location > 8) {
 						location = 7.5;
 					}
 					cout << location << endl;
 				}
-
-				if (location == 0) { reward = PRZ0; }// if statements to determine winnings
+                
+                // if statements to determine winnings
+				if (location == 0) {
+                    reward = PRZ0;
+                }
 				else if (location == 1) { reward = PRZ1; }
 				else if (location == 2) { reward = PRZ2; }
 				else if (location == 3) { reward = PRZ3; }
@@ -87,63 +83,46 @@ int main()
 				else if (location == 6) { reward = PRZ6; }
 				else if (location == 7) { reward = PRZ7; }
 				else if (location == 8) { reward = PRZ8; }
-
 			}
-
-
 			cout << "Winnings: $" << reward << endl;
 			cout << endl << endl << endl;
-
-		}
-
-		else if (menuoption == "2")// multiple chips options
-		{
+        } else if (menuoption == "2") { // multiple chips options
+		
 			cout << "Please enter the number of chips to drop: ";//multiple chips input
 			cin >> chipnumber;
-			if (chipnumber > 0)
-			{
+            
+            if (chipnumber > 0) {
 				cout << "Please select a slot (0-8): ";
 				cin >> slotnumber;
 
-				if (slotnumber >= 0 && slotnumber <= 8)
-				{
-
+                if (slotnumber >= 0 && slotnumber <= 8) {
 					double location = slotnumber;
 					double totalwinnings = 0;
 
-
-					for (int i = 0; i < chipnumber; i++)// simulate chip drop for multiple chips
-					{
-						/*cout << slotnumber << endl;*/
+                    for (int i = 0; i < chipnumber; i++) { // simulate chip drop for multiple chips
 						totalwinnings = totalwinnings + reward;
 
-						for (int i = 0; i < 12; i++) // simulate chip drop for a single chips
-						{
+                        for (int i = 0; i < 12; i++) { // simulate chip drop for a single chips
 							double random = rand() % 2;
-							if (random < 1)
-							{
+                            
+                            if (random < 1) {
 								location = location + 0.5;
-							}
-							else
-							{
+                            } else {
 								location = location - 0.5;
 							}
-							if (location < 0)
-							{
+                            
+                            if (location < 0) {
 								location = 0.5;
 							}
-							else if (location > 8)
-							{
+                            else if (location > 8) {
 								location = 7.5;
 							}
-							/*cout << location << endl;
-							cout << reward << endl;
-							cout << totalwinnings << endl;*/
 						}
-
-
-
-						if (location == 0) { reward = 100; }// if statements to determine individual winnings
+                        
+                        // if statements to determine individual winnings
+						if (location == 0) {
+                            reward = 100;
+                        }
 						else if (location == 1) { reward = 500; }
 						else if (location == 2) { reward = 1000; }
 						else if (location == 3) { reward = 0; }
@@ -162,20 +141,12 @@ int main()
 
 				}
 			}
-		}
-
-		else if (menuoption == "3")// quit option
-		{
+		} else if (menuoption == "3") { // quit option
 			return 0;
-		}
-
-		else if (menuoption != "1" || menuoption != "2" || menuoption != "3")
-		{
+        } else if (menuoption != "1" || menuoption != "2" || menuoption != "3") {
 			cout << "Invalid Selection. Please enter 1, 2, or 3" << endl << endl;
 		}
-
 	}
-
 	system("pause");
 	return 0;
 }
