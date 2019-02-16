@@ -61,15 +61,15 @@ Non-Hybrid Total Cost:
 
 using namespace std;
 
-int main()
-{
+int main() {
+    
 	const double YEARS = 5;
 
 	cout << "Enter the estimated miles driven per year: ";
 	double miles_per_year;
 	cin >> miles_per_year;
-	if (miles_per_year <= 0)
-	{
+    
+    if (miles_per_year <= 0) {
 		cout << "Make sure to enter a positive number: ";
 		cin >> miles_per_year;
 	}
@@ -77,8 +77,8 @@ int main()
 	cout << "Enter the estimated gasoline price per gallon during the 5 years of ownership: ";
 	double price_per_gallon;
 	cin >> price_per_gallon;
-	if (price_per_gallon <= 0)
-	{
+    
+    if (price_per_gallon <= 0) {
 		cout << "Make sure to enter a positive number: ";
 		cin >> price_per_gallon;
 	}
@@ -86,8 +86,8 @@ int main()
 	cout << "Enter the initial price of a hybrid car: ";
 	double price_hybrid;
 	cin >> price_hybrid;
-	if (price_hybrid <= 0)
-	{
+    
+    if (price_hybrid <= 0) {
 		cout << "Make sure to enter a positive number: ";
 		cin >> price_hybrid;
 	}
@@ -95,8 +95,8 @@ int main()
 	cout << "Enter the efficiency of the hybrid car in miles per gallon: ";
 	double efficiency_hybrid;
 	cin >> efficiency_hybrid;
-	if (efficiency_hybrid <= 0)
-	{
+    
+    if (efficiency_hybrid <= 0) {
 		cout << "Make sure to enter a positive number: ";
 		cin >> efficiency_hybrid;
 	}
@@ -104,8 +104,8 @@ int main()
 	cout << "Enter the estimated resale value of the hybrid car after 5 years: ";
 	double resale_hybrid;
 	cin >> resale_hybrid;
-	if (resale_hybrid <= 0)
-	{
+    
+    if (resale_hybrid <= 0) {
 		cout << "Make sure to enter a positive number: ";
 		cin >> resale_hybrid;
 	}
@@ -113,8 +113,8 @@ int main()
 	cout << "Enter the initial price of a non-hybrid car: ";
 	double price_non_hybrid;
 	cin >> price_non_hybrid;
-	if (price_non_hybrid <= 0)
-	{
+    
+    if (price_non_hybrid <= 0) {
 		cout << "Make sure to enter a positive number: ";
 		cin >> price_non_hybrid;
 	}
@@ -122,8 +122,8 @@ int main()
 	cout << "Enter the efficiency of the non-hybrid car in miles per gallon: ";
 	double efficiency_non_hybrid;
 	cin >> efficiency_non_hybrid;
-	if (efficiency_non_hybrid <= 0)
-	{
+    
+    if (efficiency_non_hybrid <= 0) {
 		cout << "Make sure to enter a positive number: ";
 		cin >> efficiency_non_hybrid;
 	}
@@ -131,8 +131,8 @@ int main()
 	cout << "Enter the estimated resale value of the non-hybrid car after 5 years: ";
 	double resale_non_hybrid;
 	cin >> resale_non_hybrid;
-	if (resale_non_hybrid <= 0)
-	{
+    
+    if (resale_non_hybrid <= 0) {
 		cout << "Make sure to enter a positive number: ";
 		cin >> resale_non_hybrid;
 	}
@@ -153,10 +153,9 @@ int main()
 	double total_cost_non_hybrid = fuel_cost_non_hybrid + depreciation_non_hybrid;
 
 
-	if (buyer_criterion == "Gas")
-	{
-		if (total_gallons_hybrid <= total_gallons_non_hybrid)
-		{
+    if (buyer_criterion == "Gas") {
+        
+        if (total_gallons_hybrid <= total_gallons_non_hybrid) {
 			cout << "Hybrid Car" << endl;
 			cout << "Total gallons: " << total_gallons_hybrid << endl;
 			cout << "Total cost over 5 years: " << total_cost_hybrid << endl;
@@ -164,9 +163,7 @@ int main()
 			cout << "Non-Hybrid Car" << endl;
 			cout << "Total gallons: " << total_gallons_non_hybrid << endl;
 			cout << "Total cost over 5 years: " << total_cost_non_hybrid << endl;
-		}
-		else
-		{
+        } else {
 			cout << "Non-Hybrid Car" << endl;
 			cout << "Total gallons: " << total_gallons_non_hybrid << endl;
 			cout << "Total cost over 5 years: " << total_cost_non_hybrid << endl;
@@ -176,33 +173,26 @@ int main()
 			cout << "Total cost over 5 years: " << total_cost_hybrid << endl;
 
 		}
+    } else if (buyer_criterion == "Total") {
+	
+        if (total_cost_hybrid <= total_cost_non_hybrid) {
+			cout << "Hybrid Car" << endl;
+			cout << "Total cost over 5 years: " << total_cost_hybrid << endl;
+			cout << "Total gallons: " << total_gallons_hybrid << endl;
 
+			cout << "Non-Hybrid Car" << endl;
+			cout << "Total cost over 5 years: " << total_cost_non_hybrid << endl;
+			cout << "Total gallons: " << total_gallons_non_hybrid << endl;
+        } else {
+			cout << "Non-Hybrid Car" << endl;
+			cout << "Total cost over 5 years: " << total_cost_non_hybrid << endl;
+			cout << "Total gallons: " << total_gallons_non_hybrid << endl;
+
+			cout << "Hybrid Car" << endl;
+			cout << "Total cost over 5 years: " << total_cost_hybrid << endl;
+			cout << "Total gallons: " << total_gallons_hybrid << endl;
+		}
 	}
-	else if (buyer_criterion == "Total")
-	{
-		if (total_cost_hybrid <= total_cost_non_hybrid)
-		{
-			cout << "Hybrid Car" << endl;
-			cout << "Total cost over 5 years: " << total_cost_hybrid << endl;
-			cout << "Total gallons: " << total_gallons_hybrid << endl;
-
-			cout << "Non-Hybrid Car" << endl;
-			cout << "Total cost over 5 years: " << total_cost_non_hybrid << endl;
-			cout << "Total gallons: " << total_gallons_non_hybrid << endl;
-		}
-		else
-		{
-			cout << "Non-Hybrid Car" << endl;
-			cout << "Total cost over 5 years: " << total_cost_non_hybrid << endl;
-			cout << "Total gallons: " << total_gallons_non_hybrid << endl;
-
-			cout << "Hybrid Car" << endl;
-			cout << "Total cost over 5 years: " << total_cost_hybrid << endl;
-			cout << "Total gallons: " << total_gallons_hybrid << endl;
-		}
-
-	}
-
 	system("pause");
 	return 0;
 }
