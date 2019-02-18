@@ -5,8 +5,7 @@
 #include <sstream>
 using namespace std;
 
-class Car
-{
+class Car {
 	private:
 		string name;
 		string color;

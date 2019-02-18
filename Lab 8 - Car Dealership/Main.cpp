@@ -43,7 +43,7 @@ Save a File: cars3.txt
 
 using namespace std;
 
-//Inventory Function
+// Inventory Function
 void display_inventory(vector<Car> all_cars)
 {
 	cout << "Inventory:" << endl;
@@ -53,7 +53,7 @@ void display_inventory(vector<Car> all_cars)
 	}
 }
 
-//Find Car Function
+// Find Car Function
 int find_car(vector<Car> all_cars, string your_choice)
 {
 	for (int index = 0; index < all_cars.size(); index++)
@@ -66,13 +66,13 @@ int find_car(vector<Car> all_cars, string your_choice)
 	return -1;
 }
 
-//Display Balance Function
+// Display Balance Function
 void display_balance(vector<Car> all_cars, double &balance)
 {
 	cout << "Balance: " << fixed << setprecision(2) << balance << endl;
 }
 
-//Buy Car Function
+// Buy Car Function
 void buy_car(vector<Car> &all_cars, double &balance)
 {
 	string name;
@@ -116,7 +116,7 @@ void buy_car(vector<Car> &all_cars, double &balance)
 	}
 }
 
-//Sell Car Function
+// Sell Car Function
 void sell_car(vector<Car> &all_cars, double& balance)
 {
 	string sell_car_name;
@@ -139,7 +139,7 @@ void sell_car(vector<Car> &all_cars, double& balance)
 	}
 }
 
-//Paint Car Function
+// Paint Car Function
 void paint_car(vector<Car> &all_cars, double &balance)
 {
 	string paint_car_name;
@@ -159,10 +159,9 @@ void paint_car(vector<Car> &all_cars, double &balance)
 
 }
 
-//Load File Function
+// Load File Function
 void load_file(vector<Car> &all_cars, double &balance)
 {
-	//load info
 	string file_name;
 	double file_balance;
 	string name;
@@ -186,7 +185,7 @@ void load_file(vector<Car> &all_cars, double &balance)
 	balance += file_balance;
 }
 
-//Save File Function
+// Save File Function
 void save_file(vector<Car> all_cars, double balance)
 {
 	string name;
@@ -215,18 +214,12 @@ void save_file(vector<Car> all_cars, double balance)
 	save_file.close();
 }
 
-//Main Function
+// Main Function
 int main()
 {
 	double balance = 10000;
 
 	vector<Car> all_cars;
-	/*Car my_car("Jeep", "Blue", 2000);
-	Car my_car2("Audi", "White", 8000);
-	Car my_car3("Cadillac", "Black", 6000);
-	all_cars.push_back(my_car);
-	all_cars.push_back(my_car2);
-	all_cars.push_back(my_car3);*/
 
 	int menu = 0;
 	while (menu == 0)
