@@ -24,9 +24,8 @@ using namespace std;
 
 const int NOT_FOUND = -1;
 
-//Initialize Vector
-vector<string> initialize()
-{
+// Initialize Vector
+vector<string> initialize() {
 	vector<string> restaurants;
 	restaurants.push_back("Cracker Barrel");
 	restaurants.push_back("Olive Garden");
@@ -39,49 +38,44 @@ vector<string> initialize()
 	return restaurants;
 }
 
-//Print Restaurants Function
-void print_restaurants(vector<string>& restaurants)
-{
+// Print Restaurants Function
+void print_restaurants(vector<string>& restaurants) {
 	cout << "Print Vector: " << endl;
 	cout << "{";
-	for (int index = 0; index < restaurants.size(); index++)
-	{
-		if (index < restaurants.size() - 1)
-		{
+    
+	for (int index = 0; index < restaurants.size(); index++) {
+        
+		if (index < restaurants.size() - 1) {
 			cout << restaurants[index] << ",";
-		}
-		else
+        } else {
 			cout << restaurants[index];
+        }
 	}
 	cout << "}" << endl << endl;
 }
 
 
-//Print Loser Function
-void print_losers(vector<string>& losers)
-{
+// Print Loser Function
+void print_losers(vector<string>& losers) {
 	cout << "\nPrint Vector: " << endl;
 	cout << "{";
-	for (int i = 0; i < losers.size(); i++)
-	{
-		if (i < losers.size() - 1)
-		{
+    
+	for (int i = 0; i < losers.size(); i++) {
+        
+		if (i < losers.size() - 1) {
 			cout << losers[i] << ",";
-		}
-		else
+		} else {
 			cout << losers[i];
+        }
 	}
 	cout << "}" << endl << endl;
 }
 
 
-//Find Function
-int find(string restaurant_name, vector<string> restaurants)
-{
-	for (int index = 0; index < restaurants.size(); index++)
-	{
-		if (restaurant_name == restaurants[index])
-		{
+// Find Function
+int find(string restaurant_name, vector<string> restaurants) {
+	for (int index = 0; index < restaurants.size(); index++) {
+		if (restaurant_name == restaurants[index]) {
 			return index;
 		}
 	}
@@ -89,58 +83,45 @@ int find(string restaurant_name, vector<string> restaurants)
 }
 
 
-//Add Function
-void add_restaurant(string restaurant_name, vector<string>& restaurants)
-{
+// Add Function
+void add_restaurant(string restaurant_name, vector<string>& restaurants) {
 	int found = find(restaurant_name, restaurants);
-	if (found == NOT_FOUND)
-	{
+    
+	if (found == NOT_FOUND) {
 		restaurants.push_back(restaurant_name);
 		cout << "The restaurant " << restaurant_name << " was added to the vector" << endl;
-	}
-	else
-	{
+	} else {
 		cout << "The restaurant " << restaurant_name << " was not added because it is already there" << endl;
 	}
 }
 
-//Remove Function
-void remove_restaurant(string restaurant_name, vector<string>& restaurants)
-{
+// Remove Function
+void remove_restaurant(string restaurant_name, vector<string>& restaurants) {
 	int found = find(restaurant_name, restaurants);
-	if (found != NOT_FOUND)
-	{
+	if (found != NOT_FOUND) {
 		int last_pos = restaurants.size() - 1;
 		restaurants.erase(restaurants.begin() + found);
 		cout << "The restaurant " << restaurant_name << " was removed from the vector" << endl;
-	}
-	else
-	{
+	} else {
 		cout << "The restaurant " << restaurant_name << " was not removed because it was not in the vector" << endl;
 	}
 }
 
-//Remove Loser Function
-void remove_loser_restaurant(string restaurant_name, vector<string>& restaurants)
-{
+// Remove Loser Function
+void remove_loser_restaurant(string restaurant_name, vector<string>& restaurants) {
 	int found = find(restaurant_name, restaurants);
-	if (found != NOT_FOUND)
-	{
+	if (found != NOT_FOUND) {
 		int last_pos = restaurants.size() - 1;
 		restaurants.erase(restaurants.begin() + found);
-	}
-	else
-	{
+	} else {
 		cout << "The restaurant " << restaurant_name << " was not removed because it was not in the vector" << endl;
 	}
 }
 
-//Shuffle Function
-void shuffle_vector(vector<string>& restaurants)
-{
+// Shuffle Function
+void shuffle_vector(vector<string>& restaurants) {
 	int max_shuffle = 100;
-	for (int shuffle = 0; shuffle < max_shuffle; shuffle++)
-	{
+	for (int shuffle = 0; shuffle < max_shuffle; shuffle++) {
 		int posA = rand() % restaurants.size();
 		int posB = rand() % restaurants.size();
 		string temp = restaurants[posA];
@@ -149,67 +130,64 @@ void shuffle_vector(vector<string>& restaurants)
 	}
 }
 
-//Tournament Function
-string tournament(vector<string>& restaurants)
-{
-	const int power_base = 2;// determines if the vector size is equal to 2^n
+// Tournament Function
+string tournament(vector<string>& restaurants) {
+    
+	const int power_base = 2; // determines if the vector size is equal to 2^n
 	int integer_exponent = log(restaurants.size()) / log(power_base);
 	double double_exponent = log(restaurants.size()) / log(power_base);
-	//int length = (restaurants.size())-1;
 	int index = 0;
 	vector<string> losers;
 	string restaurant_name = "";
 
-	if (double_exponent == integer_exponent)
-	{
-		do//loops for multiple rounds
-		{
-			for (int i = 0; i < restaurants.size() - 1; i += 2)//loops through all the choices for 1 round
-			{
-				string competitor1 = restaurants[i];//competitor1 and 2 are joined in pairs
+	if (double_exponent == integer_exponent) {
+        // loops for multiple rounds
+		do {
+            //loops through all the choices for 1 round
+            for (int i = 0; i < restaurants.size() - 1; i += 2) {
+                // competitor1 and 2 are joined in pairs
+				string competitor1 = restaurants[i];
 				string competitor2 = restaurants[i + 1];
-				cout << endl << competitor1 << " vs " << competitor2 << endl;//standoff
+				cout << endl << competitor1 << " vs " << competitor2 << endl;
 				string winner;
 				getline(cin, winner);//user selects winner
 
-				while (winner != restaurants[i] && winner != restaurants[i + 1])//When the user types in something incorrectly
-				{
+                // when the user types in something incorrectly
+				while (winner != restaurants[i] && winner != restaurants[i + 1]) {
 					cout << "invalid, please re-enter" << endl;
 					getline(cin, winner);
 				}
-
-				if (winner == competitor1)//remove the loser from the vector to narrow down results.
-				{
-					restaurant_name = competitor2;//give me the index of competitor2 and pass it into an array for restaurants to be deleted
+                
+                // remove the loser from the vector to narrow down results
+				if (winner == competitor1) {
+					restaurant_name = competitor2;
 					losers.push_back(restaurant_name);
-				}
-				else if (winner == competitor2)
-				{
-					restaurant_name = competitor1;//give me the index of competitor1 and pass it into an array for restaurants to be deleted
+                    
+                } else if (winner == competitor2) {
+					restaurant_name = competitor1;
 					losers.push_back(restaurant_name);
 				}
 			}
-			for (int i = 0; i < losers.size(); i++)//remove all the restaurants indicated in the indexes vector
-			{
+            // remove all the restaurants indicated in the indexes vector
+			for (int i = 0; i < losers.size(); i++) {
 				restaurant_name = losers[i];
 				remove_loser_restaurant(restaurant_name, restaurants);
 			}
 			losers.clear();
 			print_restaurants(restaurants);
 			cout << "\n******Time for the next round!******" << endl;
+            
 		} while (restaurants.size() > 1);
 		cout << "\n And the winner is......" << restaurants[0] << "!!!" << endl << endl;
-	}
-	else
-	{
+    } else {
 		cout << "Could not begin tournament. There are not enough restaurants in the tournament (number of restaurants must be 2^n), please add or remove some restaurants." << endl << endl;
 		cout << ". Current restaurant size is " << restaurants.size() << " current power is " << double_exponent;
 	}
 	return restaurant_name;
 }
 
-int main()
-{
+// Main Function
+int main() {
 	int menu = 1;
 	vector<string> restaurants = initialize();
 
@@ -217,55 +195,40 @@ int main()
 
 	srand(time(0));
 
-	while (menu == 1)//Loops the menu refresh
-	{
+    while (menu == 1) {
 
 		cout << "Choose an Option:\n\t(1)Display all restaurants\n\t(2)Add a restaurant\n\t(3)Remove a Restaurant\n\t(4)Shuffle the vector\n\t(5)Begin the tournament\n\t(6)Quit the program" << endl;
 		string choice = "";
 		cin >> choice;
 		cin.ignore();
 
-		if (choice == "1")
-		{
+		if (choice == "1") {
 			cout << "Option 1: ";
 			print_restaurants(restaurants);
-		}
-
-		if (choice == "2")
-		{
+            
+		} else if (choice == "2") {
 			cout << "Option 2: Enter a restaurant: ";
 			string restaurant_name;
 			getline(cin, restaurant_name);
 			add_restaurant(restaurant_name, restaurants);
-		}
-
-		if (choice == "3")
-		{
+            
+		} else if (choice == "3") {
 			cout << "Option 3: Enter a restaurant: ";
 			string restaurant_name;
 			getline(cin, restaurant_name);
 			remove_restaurant(restaurant_name, restaurants);
-		}
-
-		if (choice == "4")
-		{
+		} else if (choice == "4") {
 			cout << "Option 4: The Vector has been shuffled" << endl;
-
 			shuffle_vector(restaurants);
-		}
-
-		if (choice == "5")
-		{
+            
+		} else if (choice == "5") {
 			cout << "Option 5: Begin the Tournament!" << endl;
 			tournament(restaurants);
-		}
-
-		if (choice == "6")//Quits the program
-		{
+            
+		} else if (choice == "6") {
 			menu = 0;
 			return 0;
 		}
-
 	}
 
 	system("pause");
