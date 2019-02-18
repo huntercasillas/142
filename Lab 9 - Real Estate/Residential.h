@@ -4,8 +4,7 @@
 #pragma once
 using namespace std;
 
-class Residential : public Property
-{
+class Residential : public Property {
 protected:
 	bool occupied;
 

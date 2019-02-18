@@ -3,55 +3,44 @@
 #pragma once
 using namespace std;
 
-Residential::Residential(bool rental, int value, bool occupied_in, string address) :Property(rental, value, address)
-{
+Residential::Residential(bool rental, int value, bool occupied_in, string address) :Property(rental, value, address) {
 
 	occupied = occupied_in;
 }
-//-----------------------------------------------------------------------------------------------------------------------
+
 Residential::~Residential(){}
-//-----------------------------------------------------------------------------------------------------------------------
-bool Residential::getOccupied()
-{
+
+bool Residential::getOccupied() {
 	return occupied;
 }
-//-----------------------------------------------------------------------------------------------------------------------
-double Residential::getTax()
-{
+
+double Residential::getTax() {
 	double taxRate;
 
-	if (occupied)
-	{
+	if (occupied) {
 		taxRate = 0.006;
-	}
-	else
-	{
+	} else {
 		taxRate = 0.009;
 	}
 
 	double tax = value * taxRate;
 	return tax;
 }
-//-----------------------------------------------------------------------------------------------------------------------
-string Residential::toString()
-{
+
+string Residential::toString() {
 	string RENTAL;
-	if (rental == 1)
-	{
+    
+	if (rental == 1) {
 		RENTAL = "Rental";
-	}
-	else
-	{
+	} else {
 		RENTAL = "NOT Rental";
 	}
 
 	string OCCUPIED;
-	if (occupied == 1)
-	{
+    
+	if (occupied == 1) {
 		OCCUPIED = "occupied";
-	}
-	else
-	{
+	} else {
 		OCCUPIED = "NOT occupied";
 	}
 

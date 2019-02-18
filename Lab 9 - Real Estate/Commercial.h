@@ -5,8 +5,7 @@
 #pragma once
 using namespace std;
 
-class Commercial : public Property
-{
+class Commercial : public Property {
 protected:
 	bool discountStatus;
 	double discountRate;

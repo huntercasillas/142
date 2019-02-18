@@ -4,8 +4,7 @@
 
 using namespace std;
 
-class Property
-{
+class Property {
 protected:
 	bool rental;
 	int value;

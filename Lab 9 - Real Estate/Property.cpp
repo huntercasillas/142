@@ -1,48 +1,40 @@
 #include "Property.h"
 using namespace std;
 
-Property(bool rental_in, int value_in, string address_in)
-{
+Property(bool rental_in, int value_in, string address_in) {
 	rental = rental_in;
 	value = value_in;
 	address = address_in;
 }
-//-----------------------------------------------------------------------------------------------------------------------
+
 ~Property(){}
-//-----------------------------------------------------------------------------------------------------------------------
-string Property::getAddress()
-{
+
+string Property::getAddress() {
 	return address;
 }
-//-----------------------------------------------------------------------------------------------------------------------
-int Property::getValue()
-{
+
+int Property::getValue() {
 	return value;
 }
-//-----------------------------------------------------------------------------------------------------------------------
-bool Property::getRental()
-{
+
+bool Property::getRental() {
 	return rental;
 }
-//-----------------------------------------------------------------------------------------------------------------------
-double Property::getTax()
-{
+
+double Property::getTax() {
 	return tax;
 }
-int Property::getID() const
-{
+
+int Property::getID() const {
 	return ID;
 }
-//-----------------------------------------------------------------------------------------------------------------------
-string Property::toString()
-{
+
+string Property::toString() {
 	string RENTAL;
-	if (rental == 0)
-	{
+    
+	if (rental == 0) {
 		RENTAL = "Rental";
-	}
-	else
-	{
+	} else {
 		RENTAL = "NOT Rental";
 	}
 	stringstream ss;
