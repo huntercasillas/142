@@ -1,7 +1,6 @@
 /*
 Hunter Casillas
-87-647-3173
-CS 142 Fall 2015 Midterm 2 Exam
+CS 142 Midterm 2 Exam
 
 I could not find a way to properly translate each sentence into pig latin, so I focused on translating what I could actually do. 
 My code prompts the user for phrases until he or she types "opstay".
